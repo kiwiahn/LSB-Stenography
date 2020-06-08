@@ -11,24 +11,23 @@ int main(int argc, char *argv[])
     
     /*Parameter Note
         if 2 parameter, extract text from image
-        if 3 parameters, Create Compress image for embed
         if 4 parameters, Embed text to image (compressed)
     */
     switch (argc)
     {
-    case 3:
-    {
-        puts("Creating clone image for embed string....");
+    //case 3:
+    //{
+    //    puts("Creating clone image for embed string....");
 
-        //convert char to wchar
-        const WCHAR* pwcsName;
-        int nChars = MultiByteToWideChar(CP_ACP, 0, argv[1], -1, NULL, 0);
-        pwcsName = new WCHAR[nChars];
-        MultiByteToWideChar(CP_ACP, 0, argv[1], -1, (LPWSTR)pwcsName, nChars);
-        CreateMaliciousImage(pwcsName, argv[2]);
-        puts("Working done!");
-        break;
-    }
+    //    //convert char to wchar
+    //    const WCHAR* pwcsName;
+    //    int nChars = MultiByteToWideChar(CP_ACP, 0, argv[1], -1, NULL, 0);
+    //    pwcsName = new WCHAR[nChars];
+    //    MultiByteToWideChar(CP_ACP, 0, argv[1], -1, (LPWSTR)pwcsName, nChars);
+    //    CreateMaliciousImage(pwcsName, argv[2]);
+    //    puts("Working done!");
+    //    break;
+    //}
     case 4:
     {
         //cmd : hasagiiiiii!!!! D:\\Another\\CacKTGT\\btl\\test\\abcd.png  D:\\Another\\CacKTGT\\btl\\test\\encoded_abcd.png
@@ -38,6 +37,10 @@ int main(int argc, char *argv[])
         int nChars = MultiByteToWideChar(CP_ACP, 0, argv[2], -1, NULL, 0);
         pwcsName = new WCHAR[nChars];
         MultiByteToWideChar(CP_ACP, 0, argv[2], -1, (LPWSTR)pwcsName, nChars);
+
+        //clone image
+        
+        CreateMaliciousImage(pwcsName, argv[2]);
 
         //Embed string
         std::string text = argv[1];
